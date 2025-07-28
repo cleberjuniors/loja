@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - Loja CDB</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="pagina-admin">
+  <h1>Painel Admin</h1>
+  <form id="form-produto">
+    <input type="text" name="nome" placeholder="Nome do produto" required />
+    <input type="number" step="0.01" name="preco" placeholder="Preço" required />
+    <input type="text" name="imagem" placeholder="URL da imagem" required />
+    <button type="submit">Adicionar Produto</button>
+  </form>
+  <h2>Produtos</h2>
+  <ul id="lista-admin"></ul>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

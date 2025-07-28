@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1753722561415,
+    "nome": "mustang",
+    "preco": 2000000,
+    "imagem": "https://images.unsplash.com/photo-1625231334168-35067f8853ed?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 1753722962829,
+    "nome": "moto",
+    "preco": 20,
+    "imagem": "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 1753723161178,
+    "nome": "flor",
+    "preco": 10,
+    "imagem": "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 1753723177348,
+    "nome": "daad",
+    "preco": 334,
+    "imagem": "https://images.unsplash.com/photo-1625231334168-35067f8853ed?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 1753723181091,
+    "nome": "rwrwrw",
+    "preco": 34353,
+    "imagem": "https://images.unsplash.com/photo-1625231334168-35067f8853ed?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 1753723185691,
+    "nome": "43433",
+    "preco": 344342.99,
+    "imagem": "https://images.unsplash.com/photo-1625231334168-35067f8853ed?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 1753723189820,
+    "nome": "24243",
+    "preco": 343434,
+    "imagem": "https://images.unsplash.com/photo-1625231334168-35067f8853ed?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 1753723193179,
+    "nome": "43433",
+    "preco": 433434,
+    "imagem": "https://images.unsplash.com/photo-1625231334168-35067f8853ed?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
+]

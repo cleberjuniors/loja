@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Finalizar Compra</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Finalizar Compra</h1>
+  <div id="lista-carrinho"></div>
+  <h2 id="total"></h2>
+
+  <form id="form-compra">
+    <input type="text" name="nome" placeholder="Seu nome" required>
+    <input type="text" name="endereco" placeholder="Endereço" required>
+    <select name="pagamento" required>
+      <option value="">Forma de pagamento</option>
+      <option value="cartao">Cartão</option>
+      <option value="boleto">Boleto</option>
+      <option value="pix">PIX</option>
+    </select>
+    <button type="submit">Confirmar Pedido</button>
+  </form>
+
+  <script>
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    const lista = document.getElementById("lista-carrinho");
+    let total = 0;
+    carrinho.forEach(item => {
+      const p = document.createElement("p");
+      p.innerText = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+      lista.appendChild(p);
+      total += item.preco;
+    });
+    document.getElementById("total").innerText = `Total: R$ ${total.toFixed(2)}`;
+
+    document.getElementById("form-compra").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Pedido realizado com sucesso!");
+      localStorage.removeItem("carrinho");
+      window.location.href = "/";
+    });
+  </script>
+</body>
+</html>
