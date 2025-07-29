@@ -4,83 +4,137 @@
   <meta charset="UTF-8" />
   <title>Loja CDB - Produtos</title>
   <link rel="stylesheet" href="css/style.css" />
+
 </head>
+
 <body class="pagina-inicial">
   <nav class="navbar">
-  <div class="logo">Minha Loja</div>
-  
-  <div class="search-bar">
-    <input type="text" placeholder="Buscar produtos...">
-    <button class="btn-search">
-      🔍
-    </button>
+    <div class="logo">Minha Loja</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar produtos...">
+      <button class="btn-search">🔍</button>
+    </div>
+    <div class="nav-links">
+      <div class="carrinho" data-quantidade="0">🛒 Carrinho</div>
+      <a href="#">Login</a>
+      <a href="#">Cadastrar</a>
+    </div>
+  </nav>
+<div class="resultados-busca" style="display: none;"></div>
+  <div class="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://images.unsplash.com/photo-1592906209472-a36b1f3782ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Banner 1">
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1592906209472-a36b1f3782ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Banner 2">
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1592906209472-a36b1f3782ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Banner 3">
+      </div>
+    </div>
+    <button class="carousel-control prev">‹</button>
+    <button class="carousel-control next">›</button>
   </div>
 
-  <div class="nav-links">
-    <div class="carrinho" data-quantidade="0">🛒 Carrinho</div>
-    <a href="#">Login</a>
-    <a href="#">Cadastrar</a>
+<div class="categories">
+  <div class="category-item" data-category="categoria1">
+    <img src="https://picsum.photos/id/1005/100/100" alt="Categoria 1" />
+    <div class="category-name">Categoria 1</div>
   </div>
-</nav>
-<div class="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://images.unsplash.com/photo-1592906209472-a36b1f3782ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Banner 1">
-    </div>
-    <div class="carousel-item">
-      <img src="https://images.unsplash.com/photo-1592906209472-a36b1f3782ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Banner 2">
-    </div>
-    <div class="carousel-item">
-      <img src="https://images.unsplash.com/photo-1592906209472-a36b1f3782ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Banner 3">
-    </div>
-    <div class="carousel-item">
-      <img src="https://images.unsplash.com/photo-1592906209472-a36b1f3782ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Banner 3">
-    </div>
-    <div class="carousel-item">
-      <img src="https://images.unsplash.com/photo-1592906209472-a36b1f3782ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Banner 3">
-    </div>
-    <div class="carousel-item">
-      <img src="https://images.unsplash.com/photo-1592906209472-a36b1f3782ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Banner 3">
-    </div>
+  <div class="category-item" data-category="categoria2">
+    <img src="https://picsum.photos/id/1006/100/100" alt="Categoria 2" />
+    <div class="category-name">Categoria 2</div>
   </div>
-  <button class="carousel-control prev">‹</button>
-  <button class="carousel-control next">›</button>
+  <div class="category-item" data-category="categoria3">
+    <img src="https://picsum.photos/id/1008/100/100" alt="Categoria 3" />
+    <div class="category-name">Categoria 3</div>
+  </div>
+  <div class="category-item" data-category="categoria4">
+    <img src="https://picsum.photos/id/1008/100/100" alt="Categoria 3" />
+    <div class="category-name">Categoria 4</div>
+  </div>
+  <div class="category-item" data-category="categoria5">
+    <img src="https://picsum.photos/id/1008/100/100" alt="Categoria 3" />
+    <div class="category-name">Categoria 5</div>
+  </div>
+  <div class="category-item" data-category="categoria6">
+    <img src="https://picsum.photos/id/1008/100/100" alt="Categoria 3" />
+    <div class="category-name">Categoria 6</div>
+  </div>
+  <div class="category-item" data-category="categoria7">
+    <img src="https://picsum.photos/id/1008/100/100" alt="Categoria 3" />
+    <div class="category-name">Categoria 7</div>
+  </div>
+  <div class="category-item" data-category="categoria8">
+    <img src="https://picsum.photos/id/1008/100/100" alt="Categoria 3" />
+    <div class="category-name">Categoria 8</div>
+  </div>
+  <!-- Mais categorias -->
 </div>
-
   <main>
-    <div class="produtos-grid" id="produtos"></div>
+    <div class="produtos-grid"></div>
+
+    <!-- Paginação -->
+    <div class="paginacao">
+      <button id="prev" class="seta">‹</button>
+      <div id="numeros-paginas"></div>
+      <button id="next" class="seta">›</button>
+    </div>
   </main>
 
-  <script src="js/main.js"></script>
+  <!-- Script do carrossel -->
   <script>
-  const items = document.querySelectorAll('.carousel-item');
-  const totalItems = items.length;
-  let currentIndex = 0;
+   // Carrossel das imagens principais
+const items = document.querySelectorAll('.carousel-item');
+const totalItems = items.length;
+const inner = document.querySelector('.carousel-inner');
+const prevButton = document.querySelector('.carousel-control.prev');
+const nextButton = document.querySelector('.carousel-control.next');
+let currentIndex = 0;
 
-  const prevButton = document.querySelector('.carousel-control.prev');
-  const nextButton = document.querySelector('.carousel-control.next');
-  const inner = document.querySelector('.carousel-inner');
+function updateCarousel() {
+  inner.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
 
-  function updateCarousel() {
-    inner.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
+function showNext() {
+  currentIndex = (currentIndex + 1) % totalItems;
+  updateCarousel();
+}
 
-  function showNext() {
-    currentIndex = (currentIndex + 1) % totalItems;
-    updateCarousel();
-  }
+function showPrev() {
+  currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+  updateCarousel();
+}
 
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-    updateCarousel();
-  }
+nextButton.addEventListener('click', showNext);
+prevButton.addEventListener('click', showPrev);
 
-  nextButton.addEventListener('click', showNext);
-  prevButton.addEventListener('click', showPrev);
+setInterval(showNext, 4000);
 
-  // Troca automática a cada 4 segundos
-  setInterval(showNext, 4000);
-</script>
+// Se quiser, pode adicionar evento nas categorias para filtrar produtos
+const categoryItems = document.querySelectorAll('.category-item');
+categoryItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const categoria = item.getAttribute('data-category');
+    // Aqui você pode chamar uma função para filtrar produtos, por exemplo:
+    // filtrarProdutosPorCategoria(categoria);
 
+    // Exemplo só visual: destacar categoria clicada
+    categoryItems.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
+
+// Inicia o carrossel
+updateCarousel();
+
+    // Troca automática a cada 4 segundos
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      updateCarousel();
+    }, 4000);
+  </script>
+  <script src="js/index.js"></script>
 </body>
 </html>
