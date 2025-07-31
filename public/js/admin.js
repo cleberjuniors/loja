@@ -20,7 +20,7 @@ async function listarProdutos() {
 document.getElementById("form-produto").addEventListener("submit", async (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
-  const dados = Object.fromEntries(formData);
+ const dados = Object.fromEntries(formData);
   const res = await fetch("/api/produtos", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

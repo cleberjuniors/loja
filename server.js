@@ -12,45 +12,56 @@ app.use(express.urlencoded({ extended: true }));
 // Servir arquivos estáticos (HTML/CSS/JS)
 app.use(express.static(path.join(__dirname, "public")));
 
-// Caminho do arquivo JSON
+// Caminhos dos arquivos
 const dataDir = path.join(__dirname, "data");
 const produtosFile = path.join(dataDir, "produtos.json");
+const lojasFile = path.join(dataDir, "lojas.json");
 
-// Garante que a pasta e o arquivo existem
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir);
-}
-if (!fs.existsSync(produtosFile)) {
-  fs.writeFileSync(produtosFile, "[]", "utf8");
-}
+// Garante que a pasta e os arquivos existem
+if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir);
+if (!fs.existsSync(produtosFile)) fs.writeFileSync(produtosFile, "[]", "utf8");
+if (!fs.existsSync(lojasFile)) fs.writeFileSync(lojasFile, "[]", "utf8");
 
 // Funções auxiliares
-function getProdutos() {
-  return JSON.parse(fs.readFileSync(produtosFile, "utf8"));
-}
-function saveProdutos(produtos) {
+const getProdutos = () => JSON.parse(fs.readFileSync(produtosFile, "utf8"));
+const saveProdutos = (produtos) =>
   fs.writeFileSync(produtosFile, JSON.stringify(produtos, null, 2), "utf8");
-}
 
-// Rota para pegar produtos
+const getLojas = () => JSON.parse(fs.readFileSync(lojasFile, "utf8"));
+const saveLojas = (lojas) =>
+  fs.writeFileSync(lojasFile, JSON.stringify(lojas, null, 2), "utf8");
+
+// ROTA: Listar produtos
 app.get("/api/produtos", (req, res) => {
   res.json(getProdutos());
 });
-
-// Rota para adicionar produto
+app.get('/api/lojas', (req, res) => {
+  const lojas = getLojas();
+  res.json(lojas);
+});
+// ROTA: Adicionar produto
 app.post("/api/produtos", (req, res) => {
-  const { nome, preco, imagem } = req.body;
+  let { nome, preco, imagem } = req.body;
+  preco = parseFloat(preco);
 
-  if (!nome || !preco || !imagem) {
-    return res.status(400).json({ error: "Preencha todos os campos!" });
+  if (
+    typeof nome !== "string" ||
+    nome.trim() === "" ||
+    typeof imagem !== "string" ||
+    imagem.trim() === "" ||
+    isNaN(preco)
+  ) {
+    return res
+      .status(400)
+      .json({ error: "Preencha todos os campos corretamente!" });
   }
 
   const produtos = getProdutos();
   const novoProduto = {
     id: Date.now(),
     nome,
-    preco: parseFloat(preco),
-    imagem
+    preco,
+    imagem,
   };
 
   produtos.push(novoProduto);
@@ -60,12 +71,42 @@ app.post("/api/produtos", (req, res) => {
   res.json(novoProduto);
 });
 
-// Rota para excluir produto
+// ROTA: Excluir produto
 app.delete("/api/produtos/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  const produtos = getProdutos().filter(p => p.id !== id);
+  const produtos = getProdutos().filter((p) => p.id !== id);
   saveProdutos(produtos);
   res.json({ message: "Produto removido" });
+});
+
+// ROTA: Adicionar loja
+app.post("/api/lojas", (req, res) => {
+  const { nome, email, categoria } = req.body;
+
+  if (
+    typeof nome !== "string" ||
+    nome.trim() === "" ||
+    typeof email !== "string" ||
+    email.trim() === "" ||
+    typeof categoria !== "string" ||
+    categoria.trim() === ""
+  ) {
+    return res.status(400).json({ error: "Preencha todos os campos!" });
+  }
+
+  const lojas = getLojas();
+  const novaLoja = {
+    id: Date.now(),
+    nome,
+    email,
+    categoria,
+  };
+
+  lojas.push(novaLoja);
+  saveLojas(lojas);
+
+  console.log("Loja cadastrada:", novaLoja);
+  res.json(novaLoja);
 });
 
 app.listen(PORT, () => {

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cadastro de Loja</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 500px; margin: 20px auto; }
+  label { display: block; margin-top: 10px; }
+  input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+  button { margin-top: 15px; padding: 10px 20px; }
+</style>
+</head>
+<body>
+
+<h1>Cadastro da Loja</h1>
+<form id="formLoja">
+  <label>Nome da Loja *</label>
+  <input type="text" name="nome" required />
+
+  <label>URL amigável da loja (ex: minha-loja) *</label>
+  <input type="text" name="url" required pattern="[a-z0-9\-]+" title="Somente letras minúsculas, números e hífen" />
+
+  <label>Descrição</label>
+  <textarea name="descricao" rows="3"></textarea>
+
+  <label>Contato (telefone, email, etc)</label>
+  <input type="text" name="contato" />
+
+  <label>Endereço (opcional)</label>
+  <input type="text" name="endereco" placeholder="Rua, número, cidade..." />
+
+  <label>Link do Logo (URL da imagem)</label>
+  <input type="url" name="logo" placeholder="https://..." />
+
+  <button type="submit">Cadastrar Loja</button>
+</form>
+
+<div id="mensagem"></div>
+
+<script>
+  const form = document.getElementById('formLoja');
+  const msg = document.getElementById('mensagem');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const dados = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch('/api/lojas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados),
+      });
+
+      const json = await res.json();
+
+      if (res.ok) {
+        msg.textContent = '✅ Loja cadastrada com sucesso!';
+        msg.style.color = 'green';
+        form.reset();
+      } else {
+        msg.textContent = '❌ Erro: ' + (json.error || 'Não foi possível cadastrar.');
+        msg.style.color = 'red';
+      }
+    } catch (err) {
+      console.error('Erro de comunicação:', err); // <-- Veja no console
+      msg.textContent = '❌ Erro na comunicação com o servidor.';
+      msg.style.color = 'red';
+    }
+  });
+</script>
+
+<script src="public/js/lojas.js"></script>
+</body>
+</html>
